@@ -6,15 +6,15 @@ class App extends Component {
   constructor() {
     super(); 
     this.todoitem = [
-      "bye meat",
-      "bye fish"
+      {title: "bye meat", isDone: false},
+      {title: "bye fish", isDone: false},
     ]
   }
   render() {
     return (
       <div className="App">
         {
-          this.todoitem.map((item, index) => <Todoitem key={index} title= {item} />)
+          this.todoitem.map((item, index) => <Todoitem key={index} item= {item} />)
         }
       </div>
     );
