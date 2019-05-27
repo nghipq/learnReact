@@ -5,16 +5,32 @@ import Todoitem from './compornents/Todoitem'
 class App extends Component {
   constructor() {
     super(); 
-    this.todoitem = [
-      {title: "bye meat", isDone: false},
+    this.state = {
+      todoitem: [
+      {title: "bye meat", isDone: true},
       {title: "bye fish", isDone: false},
-    ]
+    ]}
   }
+
+  onItemClick(item) {
+    this.setState(
+      this.change(item)
+    )
+  }
+
+  change(item) {
+    return this.state.todoitem.filter(x => x === item).map(x => x.isDone = !item.isDone);
+  } 
+
   render() {
+  const { todoitem } = this.state
     return (
       <div className="App">
         {
-          this.todoitem.map((item, index) => <Todoitem key={index} item= {item} />)
+        todoitem.length > 0 && todoitem.map((item, index) => <Todoitem onClick={this.onItemClick.bind(this, item)} key={index} item= {item} />)
+        }
+        {
+        todoitem.length === 0 && 'notthing here!'
         }
       </div>
     );

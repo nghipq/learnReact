@@ -5,12 +5,12 @@ const classNames = require('classnames');
 
 class Todoitem extends Component {
     render() {
-        const {item} = this.props;
+        const {item, onClick} = this.props;
         let className = classNames('Todoitem', {TodoitemDone: item.isDone});
 
         return (
-            <div className={className}>
-                <p>{item.title}</p>
+            <div onClick={onClick} className={className}>
+                {item.title}
             </div>
         );
     };
