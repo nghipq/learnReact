@@ -1,11 +1,30 @@
 .Todoitem {
+    display: flex;
+    flex-flow: row;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 300;
     font-size: 1.5rem;
-    color: rgb(151, 151, 151)
+    color: rgb(151, 151, 151);
+    padding: 10px 15px;
+    border-bottom: 1px solid #bebebe;
 }
 
-.TodoitemDone {
+.Todoitem:last-child {
+    border: none
+}
+
+.Todoitem > img {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+}
+
+.Todoitem > p {
+    margin: 0;
+    margin-left: 20px
+}
+
+.TodoitemDone > p {
     text-decoration: line-through;
     opacity: .4;
 }
