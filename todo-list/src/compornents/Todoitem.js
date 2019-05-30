@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
+
 import './Todoitem.css';
 import check from '../svg/success.svg';
 import checkDone from '../svg/success-done.svg';
@@ -21,6 +23,14 @@ class Todoitem extends Component {
             </div>
         );
     };
+}
+
+Todoitem.propTypes = {
+    item: PropTypes.shape({
+        isDone: PropTypes.bool.isRequired,
+        title: PropTypes.string.isRequired
+    }),
+    onClick: PropTypes.func
 }
 
 export default Todoitem
