@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
+
 import Todoitem from './compornents/Todoitem';
 import tick from './svg/tick.svg';
 import Current from './compornents/Current';
 
 class App extends Component {
-  constructor() {
-    super(); 
+  constructor(props) {
+    super(props); 
     this.state = {
       newItem: "",
       todoitem: [],
@@ -16,6 +17,9 @@ class App extends Component {
         {current: 'Non-Active', active: false},
       ],
     };
+
+    this.inputElement = React.createRef();
+    setTimeout(() => this.inputElement.current.focus() , 2000)
   };
 
   onItemClick(item) {
@@ -93,7 +97,8 @@ class App extends Component {
            placeholder="ADD NEW TODO"
            value={newItem}
            onChange={this.onChange.bind(this)}
-           onKeyUp={this.onKeyUp.bind(this)} />
+           onKeyUp={this.onKeyUp.bind(this)}
+           ref={this.inputElement} />
         </div>
         {
         todoitem.length > 0 && result.map((item, index) => 
